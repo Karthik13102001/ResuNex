@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Preview</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body onload="printPage()">
+    <div class="container">
+        <div class="resume" id="resumeContent">
+            <!-- Resume content will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        // Retrieve form data from sessionStorage
+        var resumeData = JSON.parse(sessionStorage.getItem('resumeData'));
+
+        // Display resume content with line breaks and bulleted lists
+        var resumeContent = document.getElementById('resumeContent');
+        var html = `
+            <h2 class="name">${resumeData.name}</h2>
+            <div class="header">    
+                <p>${resumeData.contact}</p>
+                <p>${resumeData.email}</p>
+                <p>${resumeData.linkedin}</p>
+            </div>
+           
+            <div class="section">
+                <h3 class="objective">Career Objective:</h3>
+                <p class="objective_detail">${resumeData.objective.replace(/\n/g, '<br>')}</p>
+            </div>
+            <img class="dividing_line" src="dividing_line.png">
+            <div class="section">
+                <h3 class="sectionhead">Educational Qualification:</h3>
+                <p class="detail">${resumeData.education.replace(/\n/g, '<br>')}</p>
+            </div>
+            <img class="dividing_line" src="dividing_line.png">
+            <div class="section">
+                <h3 class="sectionhead">Skills:</h3>
+                <ul class="detail">${createBulletedList(resumeData.skills)}</ul>
+            </div>
+            <img class="dividing_line" src="dividing_line.png">
+            <div class="section">
+                <h3 class="sectionhead">Software Knowledge:</h3>
+                <ul class="detail">${createBulletedList(resumeData.software)}</ul>
+            </div>
+            <img class="dividing_line" src="dividing_line.png">
+            <div class="section">
+                <h3 class="sectionhead">Projects and Internships:</h3>
+                <ul class="detail">${createBulletedList(resumeData.projects_internships)}</ul>
+            </div>
+            <img class="dividing_line" src="dividing_line.png">
+            <div class="section">
+                <h3 class="sectionhead">Certifications:</h3>
+                <ul class="detail">${createBulletedList(resumeData.certifications)}</ul>
+            </div>
+        `;
+
+        resumeContent.innerHTML = html;
+
+        // Function to create a bulleted list from text content
+        function createBulletedList(text) {
+            if (!text.trim()) return ''; // Return empty string if text is empty
+            const items = text.split('\n'); // Split text by newline characters
+            let html = ''; // Initialize HTML string
+            // Iterate through each item and wrap it in a list item
+            items.forEach(item => {
+                html += `<li>${item}</li>`;
+            });
+            return html; // Return the HTML for the bulleted list
+        }
+
+        // Function to open print dialog automatically with specified settings
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

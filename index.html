@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Creation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateForm() {
+            var formData = {
+                "name": document.getElementById('name').value,
+                "contact": document.getElementById('contact').value,
+                "email": document.getElementById('email').value,
+                "linkedin": document.getElementById('linkedin').value,
+                "objective": document.getElementById('objective').value,
+                "education": document.getElementById('education').value,
+                "skills": document.getElementById('skills').value,
+                "software": document.getElementById('software').value,
+                "projects_internships": document.getElementById('projects_internships').value,
+                "certifications": document.getElementById('certifications').value
+            };
+
+            // Store form data in sessionStorage
+            sessionStorage.setItem('resumeData', JSON.stringify(formData));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Resume Creation</h1>
+        <form action="page2.html" method="post" onsubmit="validateForm()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Id:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn:</label>
+                <input type="text" id="linkedin" name="linkedin">
+            </div>
+            <div class="form-group">
+                <label for="objective">Career Objective:</label>
+                <textarea id="objective" name="objective" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="education">Educational Qualification:</label>
+                <textarea id="education" name="education" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills:</label>
+                <textarea id="skills" name="skills" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="software">Software Knowledge:</label>
+                <textarea id="software" name="software" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="projects_internships">Projects and Internships:</label>
+                <textarea id="projects_internships" name="projects_internships" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifications">Certifications:</label>
+                <textarea id="certifications" name="certifications" rows="4"></textarea>
+            </div>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

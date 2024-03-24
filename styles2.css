@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    background-image: url('bg.png'); /* Set background image */
+    background-size: cover; /* Ensure background image covers the container */
+    background-position: center; /* Center the background image */
+    padding: 0;
+    
+}
+
+
+.resume {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 50px; /* Adjust padding top as needed */
+}
+
+.sectionhead {
+    color: #ff0066;
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.objective {
+    color: #ff0066;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+.dividing_line {
+    width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.detail {
+    margin-top: 2px;
+    margin-bottom: 3px;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 14pt;
+}
+
+.objective_detail {
+    margin-top: 0px;
+    margin-bottom: 2px;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 14pt;
+}
+
+.name {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+}
+
+.header {
+    margin-top: -4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.divider {
+    color: #ff0066;
+    font-weight: bolder;
+}
+
+
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact; /* Ensure background image is printed */
+        background-image: url('bg.png') !important; /* Specify background image for printing */
+    }
+}
